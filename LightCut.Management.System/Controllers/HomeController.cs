@@ -15,6 +15,15 @@ namespace LightCut.Management.System.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Login(string username, string password)
+        {
+            Console.WriteLine(username);
+            Console.WriteLine(password);
+
+            return Ok();
+        }
+
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
