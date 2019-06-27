@@ -35,3 +35,184 @@ body {
         display: none;
     }
 }
+
+/* Custom */
+
+* {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+    font-size: 10pt;
+}
+
+.btn-top {
+    margin-top: 24px;
+}
+
+.btn-full-width {
+    width: 100%;
+}
+
+.btn-lightcut {
+    color: #fff;
+    background-color: #695F68;
+    border-color: #544c53;
+}
+
+.btn-lightcut:focus,
+.btn-lightcut.focus {
+    color: #fff;
+    background-color: #544c53;
+    border-color: #695F68;
+}
+
+.btn-lightcut:hover {
+    color: #fff;
+    background-color: #544c53;
+    border-color: #695F68;
+}
+
+.btn-lightcut:active,
+.btn-lightcut.active,
+.open > .dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
+}
+
+.btn-lightcut:active:hover,
+.btn-lightcut.active:hover,
+.open > .dropdown-toggle.btn-primary:hover,
+.btn-lightcut:active:focus,
+.btn-lightcut.active:focus,
+.open > .dropdown-toggle.btn-primary:focus,
+.btn-lightcut:active.focus,
+.btn-lightcut.active.focus,
+.open > .dropdown-toggle.btn-primary.focus {
+    color: #fff;
+    background-color: #204d74;
+    border-color: #122b40;
+}
+
+.btn-lightcut:active,
+.btn-lightcut.active,
+.open > .dropdown-toggle.btn-primary {
+    background-image: none;
+}
+
+.btn-lightcut.disabled:hover,
+.btn-lightcut[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-lightcut.disabled:focus,
+.btn-lightcut[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-lightcut.disabled.focus,
+.btn-lightcut[disabled].focus,
+fieldset[disabled] .btn-primary.focus {
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+.btn-lightcut .badge {
+    color: #337ab7;
+    background-color: #fff;
+}
+
+/* Table */
+
+.table-padding {
+    padding: 10px;
+}
+
+.table > tbody > tr.odd {
+    background-color: #eee;
+}
+
+table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    padding: 1px 1px;
+    vertical-align: middle;
+    border-top: 1px solid #DDD;
+    font-size: 0.8em;
+}
+
+.dataTables_info {
+    font-size: 0.9em;
+}
+
+/* Nav Tabs */
+
+.nav-tabs > li > a {
+    background-color: #cccccc;
+    color: #666;
+}
+
+    .nav-tabs > li > a:hover {
+        background-color: #428bca;
+        color: #fff;
+    }
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    background-color: #428bca;
+    color: #fff;
+}
+
+/* Buttons */
+
+.btn-xs, .btn-group-xs > .btn {
+    border-radius: 3px;
+    font-size: 0.9em;
+    line-height: 1.5;
+    padding: 1px 3px;
+}
+
+.buttons-html5 {
+    font-size: 0.8em;
+}
+
+/* Forms */
+
+input.ng-invalid {
+    border: 1px solid red;
+}
+
+select.ng-invalid {
+    border: 1px solid red;
+}
+
+/*input.form-control {
+    max-height: 30px;
+}*/
+
+/* label {
+    font-size: 0.9em;
+    max-height: 10px;
+} */
+
+hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Nav Bar */
+
+.navbar-inverse {
+    background-image: -webkit-linear-gradient(#695F68 0%, #544c53 100%);
+    background-image: -o-linear-gradient(#695F68 0%, #544c53 100%);
+    background-image: linear-gradient(#695F68 0%, #544c53 100%);
+}
+
+.navbar-inverse .navbar-brand {
+    color: #FFF;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: rgba(255,255,255,.75);
+    text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+}
+
+.navbar-inverse .navbar-nav > li > a:focus, .navbar-inverse .navbar-nav > li > a:hover {
+    color: #FFF;
+    background-color: transparent;
+}

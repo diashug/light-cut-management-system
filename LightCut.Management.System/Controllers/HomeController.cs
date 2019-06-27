@@ -10,6 +10,8 @@ namespace LightCut.Management.System.Controllers
 {
     public class HomeController : Controller
     {
+        private DashboardController dashboard = new DashboardController();
+
         public IActionResult Index()
         {
             return View();
@@ -18,10 +20,17 @@ namespace LightCut.Management.System.Controllers
         [HttpPost]
         public IActionResult Login(string username, string password)
         {
-            Console.WriteLine(username);
-            Console.WriteLine(password);
+            if (this.CheckCredentials(username, password))
+            {
+                return dashboard.Index();
+            }
 
-            return Ok();
+            return Error();
+        }
+
+        private bool CheckCredentials(string username, string password)
+        {
+            
         }
 
         public IActionResult About()
@@ -35,11 +44,6 @@ namespace LightCut.Management.System.Controllers
         {
             ViewData["Message"] = "Your contact page.";
 
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
             return View();
         }
 
