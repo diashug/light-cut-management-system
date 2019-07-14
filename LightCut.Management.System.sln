@@ -2,9 +2,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightCut.Management.System", "LightCut.Management.System\LightCut.Management.System.csproj", "{20071FB4-86E8-4BF8-BB2E-4700A532EED1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lightcut-management", "LightCut.Management.System\lightcut-management.csproj", "{20071FB4-86E8-4BF8-BB2E-4700A532EED1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightCutAPI", "LightCutAPI\LightCutAPI.csproj", "{2316EEE0-5917-4604-A125-02CFC677CDA1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lightcut-api", "LightCutAPI\lightcut-api.csproj", "{2316EEE0-5917-4604-A125-02CFC677CDA1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
