@@ -19,6 +19,7 @@ namespace LightCutAPI.Models
         public string Password { get; set; }
 
         [BsonElement("roleId")]
+        [BsonRepresentation(BsonType.ObjectId)]
         public string RoleId { get; set; }
     }
 }

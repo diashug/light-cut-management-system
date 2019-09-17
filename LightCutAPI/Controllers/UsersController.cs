@@ -1,6 +1,7 @@
 ﻿using LightCutAPI.Models;
 using LightCutAPI.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 
 namespace LightCutAPI.Controllers
@@ -11,9 +12,9 @@ namespace LightCutAPI.Controllers
     {
         private readonly UserService _service;
 
-        public UsersController(UserService service)
+        public UsersController(IConfiguration config)
         {
-            this._service = service;
+            _service = new UserService(config);
         }
 
         [HttpGet]
@@ -35,6 +36,17 @@ namespace LightCutAPI.Controllers
             return user;
         }
 
+        [HttpGet("{username, password}", Name = "Login")]
+        public ActionResult<bool> Get(string username, string password)
+        {
+            if (_service.Get(username, password))
+            {
+                return Ok();
+            }
+
+            return NotFound();
+        }
+
         [HttpPost]
         public ActionResult<User> Create(User user)
         {
@@ -42,7 +54,6 @@ namespace LightCutAPI.Controllers
 
             return CreatedAtRoute("GetUser", new { id = user.Id.ToString() }, user);
         }
-
 
         [HttpPut("{id:length(24)}")]
         public ActionResult Update(string id, User userIn)
@@ -54,11 +65,13 @@ namespace LightCutAPI.Controllers
                 return NotFound();
             }
 
-            _service.Update(id, userIn);
+            if (_service.Update(id, userIn))
+            {
+                return Ok();
+            }
 
             return NoContent();
         }
-
 
         [HttpDelete("{id:length(24)}")]
         public ActionResult Remove(string id)
@@ -70,7 +83,10 @@ namespace LightCutAPI.Controllers
                 return NotFound();
             }
 
-            _service.Remove(id);
+            if (_service.Remove(id))
+            {
+                return Ok();
+            }
 
             return NoContent();
         }

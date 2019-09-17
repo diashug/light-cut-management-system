@@ -12,19 +12,26 @@ namespace LightCutAPI.Services
 
         public UserService(IConfiguration config)
         {
-            var mongoClient = new MongoClient(config.GetConnectionString("LightcutDB"));
+            var mongoClient = new MongoClient(config.GetConnectionString("LightCutDB"));
             var database = mongoClient.GetDatabase(config["Database"]);
             this._collection = database.GetCollection<User>("users");
         }
 
         public List<User> Get()
         {
-            return _collection.Find(user => true).ToList();
+            var users = this._collection.Find(_ => true).ToList();
+
+            return users;
         }
 
         public User Get(string id)
         {
             return _collection.Find(user => user.Id == id).FirstOrDefault();
+        }
+
+        public bool Get(string username, string password)
+        {
+            return _collection.Find(user => (user.Username == username) && (user.Password == password)).Any();
         }
 
         public User Create(User user)
@@ -34,19 +41,25 @@ namespace LightCutAPI.Services
             return user;
         }
 
-        public void Update(string id, User userInput)
+        public bool Update(string id, User userInput)
         {
-            _collection.ReplaceOne(user => user.Id == id, userInput);
+            var result = _collection.ReplaceOne(user => user.Id == id, userInput);
+
+            return (result.IsAcknowledged && (result.ModifiedCount > 0));
         }
 
-        public void Remove(User userInput)
+        public bool Remove(User userInput)
         {
-            _collection.DeleteOne(user => user.Id == userInput.Id);
+            var result = _collection.DeleteOne(user => user.Id == userInput.Id);
+
+            return (result.IsAcknowledged && (result.DeletedCount > 0));
         }
 
-        public void Remove(string id)
+        public bool Remove(string id)
         {
-            _collection.DeleteOne(user => user.Id == id);
+            var result = _collection.DeleteOne(user => user.Id == id);
+
+            return (result.IsAcknowledged && (result.DeletedCount > 0));
         }
     }
 }

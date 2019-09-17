@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Login Page";
+}
+<script src="~/js/site.js" type="text/javascript"></script>
+<div style="height: 100px"></div>
+<div id="loginApp" class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-4 text-right" style="padding: 10px 10px;">
+        <img src="~/images/logo/logo.jpg" alt="Logo LightCut" />
+    </div>
+    <div class="col-md-4" style="border-left: 1px solid;">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Login</h3>
+            </div>
+            <div class="panel-body">
+                <form name="login_form" role="form">
+                    <div class="row form-group-sm">
+                        <div class="col-md-12">
+                            <label for="username">Username</label>
+                            <input id="username" type="text" class="form-control" v-model="username" autofocus required />
+                        </div>
+                    </div>
+                    <div class="row form-group-sm">
+                        <div class="col-md-12">
+                            <label for="password">Password</label>
+                            <input id="password" type="password" class="form-control" v-model="password" required />
+                        </div>
+                    </div>
+                    <div class="row form-group-sm">
+                        <div class="btn-top"></div>
+                        <div class="col-md-12">
+                            <button id="login" class="btn btn-lightcut" type="button" style="width: 100%;" @@click="login">Login</button>
+                        </div>
+                    </div>
+                    <div class="row form-group-sm">
+                        <div class="btn-top"></div>
+                        <div class="col-md-12">
+                            <a href="">Alterar/recuperar password</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+<script src="~/js/login.js" type="text/javascript"></script>
