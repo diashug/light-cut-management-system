@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Net;
+using System.Collections.Generic;
 
 namespace LightCutManagement.Controllers
 {
@@ -24,23 +25,27 @@ namespace LightCutManagement.Controllers
             return View();
         }
 
-        [HttpGet]
-        public async Task<ActionResult> Login(string username, string password)
+        [HttpGet()]
+        public async Task<Dictionary<string, object>> Login(string username, string password)
         {
-            var response = await _httpClient.GetAsync(string.Format(_config["ApiBaseUrl"] + ":" + _config["ApiPort"] + "/v1/users/username={0}&password={1}", username, password));
+            var response = await _httpClient.GetAsync(string.Format(_config["ApiBaseUrl"] + ":" + _config["ApiPort"] + "/v1/users?username={0}&password={1}", username, password));
+
+            var data = new Dictionary<string, object>();
 
             if (response.StatusCode.Equals(HttpStatusCode.OK))
             {
-                return dashboard.Index();
+                data.Add("error", false);
             } else if (response.StatusCode.Equals(HttpStatusCode.Unauthorized))
             {
-                ViewData["result"] = "Password errada.";
+                data.Add("error", true);
+                data.Add("message", "Acesso não autorizado.");
             } else if (response.StatusCode.Equals(HttpStatusCode.NotFound))
             {
-                ViewData["result"] = "Username não encontrado.";
+                data.Add("error", true);
+                data.Add("message", "Username não encontrado.");
             }
 
-            return View("~/Views/Home/Index.cshtml");
+            return data;
         }
 
 

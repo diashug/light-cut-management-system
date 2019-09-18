@@ -11,13 +11,21 @@ let vm = new Vue({
 
     data: {
         username: null,
-        password: null
+        password: null,
+        error: {
+            show: false,
+            message: null
+        }
     },
 
     methods: {
         init: function () {
             this.username = null;
             this.password = null;
+            this.error = {
+                show: false,
+                message: null
+            }
         },
 
         login: function () {
@@ -25,7 +33,12 @@ let vm = new Vue({
                 username: this.username,
                 password: this.password
             }).then((res) => {
-                console.log(res);
+                if (!res.error) {
+                    window.open("dashboard/index", "_self");
+                } else {
+                    this.error.show = true;
+                    this.error.message = res.message;
+                }
             }).catch((err) => {
                 alert(err.message);
             });
