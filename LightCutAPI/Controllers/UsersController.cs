@@ -36,7 +36,7 @@ namespace LightCutAPI.Controllers
             return user;
         }
 
-        [HttpGet("{username, password}", Name = "Login")]
+        [HttpGet("{username}/{password}", Name = "Login")]
         public ActionResult<bool> Get(string username, string password)
         {
             if (_service.Get(username, password))

@@ -25,10 +25,10 @@ namespace LightCutManagement.Controllers
             return View();
         }
 
-        [HttpGet()]
+        [HttpGet("username={username}&password={password}", Name = "Login")]
         public async Task<Dictionary<string, object>> Login(string username, string password)
         {
-            var response = await _httpClient.GetAsync(string.Format(_config["ApiBaseUrl"] + ":" + _config["ApiPort"] + "/v1/users?username={0}&password={1}", username, password));
+            var response = await _httpClient.GetAsync(string.Format(_config["ApiBaseUrl"] + ":" + _config["ApiPort"] + "/v1/users/{0}/{1}", username, password));
 
             var data = new Dictionary<string, object>();
 
