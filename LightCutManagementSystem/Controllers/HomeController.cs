@@ -25,7 +25,7 @@ namespace LightCutManagement.Controllers
             return View();
         }
 
-        [HttpGet("username={username}&password={password}", Name = "Login")]
+        [HttpGet]
         public async Task<Dictionary<string, object>> Login(string username, string password)
         {
             var response = await _httpClient.GetAsync(string.Format(_config["ApiBaseUrl"] + ":" + _config["ApiPort"] + "/v1/users/{0}/{1}", username, password));
@@ -35,14 +35,10 @@ namespace LightCutManagement.Controllers
             if (response.StatusCode.Equals(HttpStatusCode.OK))
             {
                 data.Add("error", false);
-            } else if (response.StatusCode.Equals(HttpStatusCode.Unauthorized))
+            } else
             {
                 data.Add("error", true);
-                data.Add("message", "Acesso não autorizado.");
-            } else if (response.StatusCode.Equals(HttpStatusCode.NotFound))
-            {
-                data.Add("error", true);
-                data.Add("message", "Username não encontrado.");
+                data.Add("message", "Username ou password incorrectos.");
             }
 
             return data;

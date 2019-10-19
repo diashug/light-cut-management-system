@@ -30,14 +30,19 @@ let vm = new Vue({
 
         login: function () {
             axios.get('home/login', {
-                username: this.username,
-                password: this.password
+                params: {
+                    username: this.username,
+                    password: this.password
+                }
             }).then((res) => {
-                if (!res.error) {
+
+                let data = res.data;
+
+                if (!data.error) {
                     window.open("dashboard/index", "_self");
                 } else {
                     this.error.show = true;
-                    this.error.message = res.message;
+                    this.error.message = data.message;
                 }
             }).catch((err) => {
                 alert(err.message);
