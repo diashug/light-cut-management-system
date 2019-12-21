@@ -14,15 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\js\administration\" />
     <Folder Include="wwwroot\js\orders\" />
     <Folder Include="wwwroot\js\clients\" />
     <Folder Include="wwwroot\js\suppliers\" />
-    <Folder Include="wwwroot\js\administration\users\" />
-    <Folder Include="wwwroot\js\administration\roles\" />
-    <Folder Include="wwwroot\js\administration\delivery-methods\" />
-    <Folder Include="wwwroot\js\administration\machines\" />
-    <Folder Include="wwwroot\js\administration\materials\" />
   </ItemGroup>
 
   <ItemGroup>
