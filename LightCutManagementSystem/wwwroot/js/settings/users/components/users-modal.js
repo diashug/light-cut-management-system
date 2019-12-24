@@ -18,18 +18,23 @@ let usersModalComponent = {
 						<div class="row">\
 							<div class="col-md-6">\
 								<label for="username">Username</label>\
-								<input name="username" class="form-control" type="text" />\
+								<input name="username" v-model="user.username" class="form-control" type="text" />\
 							</div>\
 							<div class="col-md-6">\
 								<label for="email">Email</label>\
-								<input name="email" class="form-control" type="email" />\
+								<input name="email" v-model="user.email" class="form-control" type="email" />\
 							</div>\
 						</div>\
-
+						<div class="row">\
+							<div class="col-md-12">\
+								<label for="rolesId">Acesso</label>\
+								<roles-select v-model="user.rolesId" @change="rolesChanged"></roles-select>\
+							</div>\
+						</div>\
 						<div class="row">\
 							<div class="col-md-12">\
 								<label for="observations">Observações</label>\
-								<textarea class="form-control" v-model="observations"></textarea>\
+								<textarea class="form-control" v-model="user.observations"></textarea>\
 							</div>\
 						</div>\
 					</div>\
