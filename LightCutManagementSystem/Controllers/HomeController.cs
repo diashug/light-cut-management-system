@@ -12,7 +12,6 @@ namespace LightCutManagement.Controllers
     public class HomeController : Controller
     {
         private readonly HttpClient _httpClient = new HttpClient();
-        private readonly DashboardController dashboard = new DashboardController();
         private readonly IConfiguration _config;
 
         public HomeController(IConfiguration config)

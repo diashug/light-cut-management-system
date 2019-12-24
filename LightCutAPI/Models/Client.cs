@@ -12,8 +12,8 @@ namespace LightCutAPI.Models
         [BsonElement("name")]
         public string Name { get; set; }
 
-        [BsonElement("nif")]
-        public int Nif { get; set; }
+        [BsonElement("vatNumber")]
+        public int VatNumber { get; set; }
 
         [BsonElement("phoneNumber")]
         public int PhoneNumber { get; set; }
