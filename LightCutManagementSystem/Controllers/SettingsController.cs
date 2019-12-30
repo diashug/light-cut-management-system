@@ -8,7 +8,12 @@ namespace LightCutManagement.Controllers
 {
     public class SettingsController : Controller
     {
-        public IActionResult Index()
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult User()
         {
             return View();
         }

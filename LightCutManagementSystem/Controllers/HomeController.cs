@@ -24,6 +24,16 @@ namespace LightCutManagement.Controllers
             return View();
         }
 
+        public ActionResult Dashboard()
+        {
+            return View();
+        }
+
+        public ActionResult Statistic()
+        {
+            return View();
+        }
+
         [HttpGet]
         public async Task<Dictionary<string, object>> Login(string username, string password)
         {

@@ -76,6 +76,6 @@ let usersModalComponent = {
 	},
 
 	created: function () {
-		this.
+		
 	}
 }

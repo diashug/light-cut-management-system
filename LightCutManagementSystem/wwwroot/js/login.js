@@ -39,7 +39,7 @@ let vm = new Vue({
                 let data = res.data;
 
                 if (!data.error) {
-                    window.open("dashboard/index", "_self");
+                    window.open("home/dashboard", "_self");
                 } else {
                     this.error.show = true;
                     this.error.message = data.message;
