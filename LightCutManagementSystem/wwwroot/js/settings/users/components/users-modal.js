@@ -1,4 +1,10 @@
-﻿
+﻿/**
+ * File:
+ * settings/users/components/users-modal.js
+ * 
+ * Creation date:
+ * 2020/01/04
+ */
 
 let usersModalComponent = {
 	template:
