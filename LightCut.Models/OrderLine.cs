@@ -1,8 +1,7 @@
-﻿using LightCut.Management.System.Models;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace LightCutAPI.Models
+namespace LightCut.Models
 {
     public class OrderLine
     {

@@ -1,9 +1,9 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace LightCutAPI.Models
+namespace LightCut.Models
 {
-    public class Client
+    public class Supplier
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
@@ -12,14 +12,8 @@ namespace LightCutAPI.Models
         [BsonElement("name")]
         public string Name { get; set; }
 
-        [BsonElement("vatNumber")]
-        public int VatNumber { get; set; }
-
-        [BsonElement("phoneNumber")]
-        public int PhoneNumber { get; set; }
-
-        [BsonElement("email")]
-        public string Email { get; set; }
+        [BsonElement("nif")]
+        public int Nif { get; set; }
 
         [BsonElement("address")]
         public string Address { get; set; }
@@ -30,7 +24,10 @@ namespace LightCutAPI.Models
         [BsonElement("locality")]
         public string Locality { get; set; }
 
-        [BsonElement("district")]
-        public string District { get; set; }
+        [BsonElement("phoneNumber")]
+        public int PhoneNumber { get; set; }
+
+        [BsonElement("email")]
+        public string Email { get; set; }
     }
 }

@@ -1,9 +1,9 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace LightCutAPI.Models
+namespace LightCut.Models
 {
-    public class DeliveryMethod
+    public class Role
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]

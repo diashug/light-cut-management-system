@@ -1,10 +1,9 @@
-﻿using LightCutAPI.Models;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
 
-namespace LightCut.Management.System.Models
+namespace LightCut.Models
 {
     public class Order
     {

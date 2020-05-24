@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace LightCut.Management.System.Models
+namespace LightCut.Models
 {
     public class Machine
     {
