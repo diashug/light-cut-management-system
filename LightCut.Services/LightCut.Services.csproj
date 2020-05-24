@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LightCut.Data\LightCut.Data.csproj" />
+    <ProjectReference Include="..\LightCut.Models\LightCut.Models.csproj" />
   </ItemGroup>
 
 </Project>
