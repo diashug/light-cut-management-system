@@ -14,10 +14,10 @@ namespace LightCut.Data.Repository
 
         void Add(T entity);
 
-        void Update(T entity);
+        bool Update(T entity);
 
-        void Remove(string id);
+        bool Remove(string id);
 
-        void Remove(T entity);
+        bool Remove(T entity);
     }
 }
