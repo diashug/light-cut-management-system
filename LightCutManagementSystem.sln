@@ -4,11 +4,9 @@ VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightCut", "LightCutManagementSystem\LightCut.csproj", "{20071FB4-86E8-4BF8-BB2E-4700A532EED1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightCut.Data", "LightCut.Data\LightCut.Data.csproj", "{5DF53BC2-3941-442D-911F-97F737183530}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightCut.Data", "LightCut.Data\LightCut.Data.csproj", "{5DF53BC2-3941-442D-911F-97F737183530}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightCut.Services", "LightCut.Services\LightCut.Services.csproj", "{57521957-ECE0-4F39-BC87-E15F855FE090}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightCut.Models", "LightCut.Models\LightCut.Models.csproj", "{D06E2805-B75D-48FD-B90B-54810061B380}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightCut.Models", "LightCut.Models\LightCut.Models.csproj", "{D06E2805-B75D-48FD-B90B-54810061B380}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,10 +22,6 @@ Global
 		{5DF53BC2-3941-442D-911F-97F737183530}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DF53BC2-3941-442D-911F-97F737183530}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DF53BC2-3941-442D-911F-97F737183530}.Release|Any CPU.Build.0 = Release|Any CPU
-		{57521957-ECE0-4F39-BC87-E15F855FE090}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{57521957-ECE0-4F39-BC87-E15F855FE090}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{57521957-ECE0-4F39-BC87-E15F855FE090}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{57521957-ECE0-4F39-BC87-E15F855FE090}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D06E2805-B75D-48FD-B90B-54810061B380}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D06E2805-B75D-48FD-B90B-54810061B380}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D06E2805-B75D-48FD-B90B-54810061B380}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -5,25 +5,35 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System.Net;
+using LightCut.Models;
+using LightCut.Data.Repository;
 
 namespace LightCutManagement.Controllers
 {
     public class ClientController : Controller
     {
-        private readonly HttpClient _httpClient = new HttpClient();
+        private readonly ClientRepository _clientRepository;
         private IConfiguration _config;
-        private string _baseUrl;
 
         public ClientController(IConfiguration config)
         {
             _config = config;
-            _baseUrl = _config["ApiBaseUrl"] + ":" + _config["ApiPort"] + "/" + _config["apiVersion"];
         }
 
-        public ActionResult Index()
+        public IActionResult Index()
         {
             return View();
         }
+
+        #region API
+
+        [HttpGet]
+        public string GetAll()
+        {
+            return JsonConvert.SerializeObject(_clientRepository.GetAll());
+        }
+
+        #endregion
 
         [HttpPost]
         public async Task<Dictionary<string, object>> Create(string name, int vatNumber, int phoneNumber,

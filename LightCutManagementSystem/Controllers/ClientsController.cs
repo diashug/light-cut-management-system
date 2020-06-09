@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
-using LightCutAPI.Models;
-using LightCutAPI.Services;
+using LightCut.Data.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LightCutAPI.Controllers
@@ -9,7 +8,7 @@ namespace LightCutAPI.Controllers
     [ApiController]
     public class ClientsController : ControllerBase
     {
-        private readonly ClientService _service;
+        private readonly ClientRepository _clientRepository;
 
         public ClientsController(ClientService service)
         {
@@ -17,7 +16,7 @@ namespace LightCutAPI.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<Client>> Get()
+        public IActionResult<List<Client>> Get()
         {
             return _service.Get();
         }
