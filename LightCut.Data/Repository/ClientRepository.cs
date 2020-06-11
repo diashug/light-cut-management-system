@@ -1,10 +1,8 @@
 ﻿using LightCut.Models;
+using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
+using System.Threading.Tasks;
 
 namespace LightCut.Data.Repository
 {
@@ -12,11 +10,16 @@ namespace LightCut.Data.Repository
     {
         private readonly IMongoCollection<Client> _collection;
 
-        public ClientRepository(IDatabaseSettings databaseSettings)
+        public ClientRepository(LightCutDatabaseSettings databaseSettings)//IConfiguration config)
         {
+            //var client = new MongoClient(config.GetSection("LightCutDatabaseSettings:ConnectionString").Value);
+            //var db = client.GetDatabase(config.GetSection("LightCutDatabaseSettings:DatabaseName").Value);
+
+            //_collection = db.GetCollection<Client>(config.GetSection("LightCutDatabaseSettings:ClientsCollection").Value);
+
             var client = new MongoClient(databaseSettings.ConnectionString);
             var db = client.GetDatabase(databaseSettings.DatabaseName);
-            
+
             _collection = db.GetCollection<Client>(databaseSettings.ClientsCollection);
         }
 
@@ -25,29 +28,35 @@ namespace LightCut.Data.Repository
             _collection.InsertOne(entity);
         }
 
-        public Client Get(string id)
+        public async Task<Client> Get(string id)
         {
-            return _collection.Find(c => c.Id == id).FirstOrDefault();
+            return await _collection.Find(c => c.Id == id).FirstOrDefaultAsync();
         }
 
-        public IEnumerable<Client> GetAll()
+        public async Task<IEnumerable<Client>> GetAll()
         {
-            return _collection.Find(c => true).ToList();
+            return await _collection.Find(c => true).ToListAsync();
         }
 
-        public void Remove(string id)
+        public async Task<bool> Remove(string id)
         {
-            _collection.DeleteOne(c => c.Id == id);
+            var result = await _collection.DeleteOneAsync(c => c.Id == id);
+
+            return (result.IsAcknowledged && (result.DeletedCount > 0));
         }
 
-        public void Remove(Client entity)
+        public async Task<bool> Remove(Client entity)
         {
-            _collection.DeleteOne(c => c.Id == entity.Id);
+            var result = await _collection.DeleteOneAsync(c => c.Id == entity.Id);
+
+            return (result.IsAcknowledged && (result.DeletedCount > 0));
         }
 
-        public void Update(Client entity)
+        public async Task<bool> Update(Client entity)
         {
-            _collection.ReplaceOne(c => c.Id == entity.Id, entity);
+            var result = await _collection.ReplaceOneAsync(c => c.Id == entity.Id, entity);
+
+            return (result.IsAcknowledged && (result.ModifiedCount > 0));
         }
     }
 }

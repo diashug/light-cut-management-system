@@ -3,21 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace LightCut.Data.Repository
 {
     public interface IRepository<T> where T : class
     {
-        T Get(string id);
+        Task<T> Get(string id);
 
-        IEnumerable<T> GetAll();
+        Task<IEnumerable<T>> GetAll();
 
         void Add(T entity);
 
-        bool Update(T entity);
+        Task<bool> Update(T entity);
 
-        bool Remove(string id);
+        Task<bool> Remove(string id);
 
-        bool Remove(T entity);
+        Task<bool> Remove(T entity);
     }
 }
